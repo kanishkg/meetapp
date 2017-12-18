@@ -56,9 +56,10 @@
 	 	},
 	 	messageToShare,
 	 	"current_thread");
-$(document).ready(function(){MessengerExtensions.getContext('YOUR_APP_ID',
+$(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
  		 	context = thread_context;
+			document.getElementById("mapholder").innerHTML = context;
  		 },
  		 function error(err){
  		    // error
