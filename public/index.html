@@ -60,7 +60,7 @@
 $(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
  		 	var context = jQuery.parseJSON(thread_context);
-			document.getElementById("mapholder").innerHTML = context.psid;
+			document.getElementById("mapholder").innerHTML = thread_context;
  		 },
  		 function error(err){
  		    // error
