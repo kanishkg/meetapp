@@ -1,0 +1,133 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>MEETAPP</title>
+
+	<!-- SCROLLS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; }
+		#todo-list 				{ margin-bottom:30px; }
+		#todo-form 	 			{ margin-bottom:50px; }
+	</style>
+
+	<!-- SPELLS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+
+	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
+	<script src="js/services/todos.js"></script> <!-- load our todo service -->
+	<script src="js/core.js"></script> <!-- load our main application -->
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body ng-controller="mainController">
+	<script>
+		// $(document).ready(function(d, s, id){
+		//   var js, fjs = d.getElementsByTagName(s)[0];
+		//   if (d.getElementById(id)) {return;}
+		//   js = d.createElement(s); js.id = id;
+		//   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+		//   fjs.parentNode.insertBefore(js, fjs);
+		// }(document, 'script', 'Messenger'));
+	</script>
+	<script>
+	// 	var messageToShare = { ... };
+
+	// 	MessengerExtensions.beginShareFlow(function success(response) {
+	// 		if(response.is_sent === true){
+	// 			// User shared. We're done here!
+	// 			MessengerExtensions.requestCloseBrowser();
+	// 			}
+	// 		else{
+	// 		// User canceled their share!
+
+	// 		}
+	// 	},
+	// 	function error(errorCode, errorMessage) {
+	// 	// An error occurred trying to share!
+	// 	},
+	// 	messageToShare,
+	// 	"current_thread");
+// $(document).ready(function(){MessengerExtensions.getContext('YOUR_APP_ID',
+// 		 function success(thread_context){
+// 		 	context = thread_context;
+// 		 },
+// 		 function error(err){
+// 		    // error
+// 		  }
+// )});
+//
+//
+	</script>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+//To use this code on your website, get a free API key from Google.
+//Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+	<div class="container">
+
+		<!-- HEADER AND TODO COUNT -->
+			<h1>Where do you want to meet?<span class="label label-info">{{ todos.length }}</span></h1>
+		<div id="todo-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+					</div>
+
+					<!-- createToDo() WILL CREATE NEW TODOS -->
+					<button type="input" class="btn btn-primary btn-lg" id="sendlocation">Send Location</button>
+					<button onclick="getLocation()">Try It</button>
+					<p id="demo">Click the button to get your position.</p>
+					<div id="mapholder"></div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
