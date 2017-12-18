@@ -30,42 +30,42 @@
 <!-- SET THE CONTROLLER -->
 <body ng-controller="mainController">
 	<script>
-		// $(document).ready(function(d, s, id){
-		//   var js, fjs = d.getElementsByTagName(s)[0];
-		//   if (d.getElementById(id)) {return;}
-		//   js = d.createElement(s); js.id = id;
-		//   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-		//   fjs.parentNode.insertBefore(js, fjs);
-		// }(document, 'script', 'Messenger'));
+		 $(document).ready(function(d, s, id){
+		   var js, fjs = d.getElementsByTagName(s)[0];
+		   if (d.getElementById(id)) {return;}
+		   js = d.createElement(s); js.id = id;
+		   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+		   fjs.parentNode.insertBefore(js, fjs);
+		 }(document, 'script', 'Messenger'));
 	</script>
 	<script>
-	// 	var messageToShare = { ... };
+		var messageToShare = { ... };
 
-	// 	MessengerExtensions.beginShareFlow(function success(response) {
-	// 		if(response.is_sent === true){
-	// 			// User shared. We're done here!
-	// 			MessengerExtensions.requestCloseBrowser();
-	// 			}
-	// 		else{
-	// 		// User canceled their share!
+	 	MessengerExtensions.beginShareFlow(function success(response) {
+	 		if(response.is_sent === true){
+	 			// User shared. We're done here!
+	 			MessengerExtensions.requestCloseBrowser();
+	 			}
+			else{
+	 		// User canceled their share!
 
-	// 		}
-	// 	},
-	// 	function error(errorCode, errorMessage) {
-	// 	// An error occurred trying to share!
-	// 	},
-	// 	messageToShare,
-	// 	"current_thread");
-// $(document).ready(function(){MessengerExtensions.getContext('YOUR_APP_ID',
-// 		 function success(thread_context){
-// 		 	context = thread_context;
-// 		 },
-// 		 function error(err){
-// 		    // error
-// 		  }
-// )});
-//
-//
+	 		}
+	 	},
+	 	function error(errorCode, errorMessage) {
+	 	// An error occurred trying to share!
+	 	},
+	 	messageToShare,
+	 	"current_thread");
+$(document).ready(function(){MessengerExtensions.getContext('YOUR_APP_ID',
+ 		 function success(thread_context){
+ 		 	context = thread_context;
+ 		 },
+ 		 function error(err){
+ 		    // error
+ 		  }
+ )});
+
+
 	</script>
 <script>
 var x = document.getElementById("demo");
@@ -80,9 +80,10 @@ function getLocation() {
 
 function showPosition(position) {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
-    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
-    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+    document.getElementById("mapholder").innerHTML = latlon+context;
+    // var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+    // +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+    // document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
 //To use this code on your website, get a free API key from Google.
 //Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
