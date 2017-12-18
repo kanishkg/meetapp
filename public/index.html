@@ -40,23 +40,23 @@
 		 }(document, 'script', 'Messenger'));
 	</script>
 	<script>
-		var messageToShare = { ... };
+	// 	var messageToShare = { ... };
 
-	 	MessengerExtensions.beginShareFlow(function success(response) {
-	 		if(response.is_sent === true){
-	 			// User shared. We're done here!
-	 			MessengerExtensions.requestCloseBrowser();
-	 			}
-			else{
-	 		// User canceled their share!
+	//  	MessengerExtensions.beginShareFlow(function success(response) {
+	//  		if(response.is_sent === true){
+	//  			// User shared. We're done here!
+	//  			MessengerExtensions.requestCloseBrowser();
+	//  			}
+	// 		else{
+	//  		// User canceled their share!
 
-	 		}
-	 	},
-	 	function error(errorCode, errorMessage) {
-	 	// An error occurred trying to share!
-	 	},
-	 	messageToShare,
-	 	"current_thread");
+	//  		}
+	//  	},
+	//  	function error(errorCode, errorMessage) {
+	//  	// An error occurred trying to share!
+	//  	},
+	//  	messageToShare,
+	//  	"current_thread");
 $(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
  		 	context = thread_context;
