@@ -59,7 +59,7 @@
 	//  	"current_thread");
 $(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
- 		 	var context = jQuery.parse(thread_context);
+ 		 	var context = jQuery.parseJSON(thread_context);
 			document.getElementById("mapholder").innerHTML = context.psid;
  		 },
  		 function error(err){
