@@ -59,8 +59,8 @@
 	//  	"current_thread");
 $(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
- 		 	var context = jQuery.parseJSON(thread_context);
-			document.getElementById("mapholder").innerHTML = thread_context;
+ 		 	var context = thread_context;
+			document.getElementById("mapholder").innerHTML = context;
  		 },
  		 function error(err){
  		    // error
