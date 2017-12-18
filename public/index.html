@@ -59,8 +59,8 @@
 	//  	"current_thread");
 $(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
- 		 	context = thread_context;
-			document.getElementById("mapholder").innerHTML = context;
+ 		 	var context = JSON.parse(thread_context);
+			document.getElementById("mapholder").innerHTML = context.psid+context.thread_type+context.tid;
  		 },
  		 function error(err){
  		    // error
