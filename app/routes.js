@@ -20,7 +20,7 @@ module.exports = function (app) {
 			res.json(stateInfo[threadID]);
 		}
 	});
-	app.get('/preference',function (req,res){
+	app.post('/preference',function (req,res){
 		var senderID = req.psid;
 		var threadID = req.tid;
 		var preference = req.pref;
