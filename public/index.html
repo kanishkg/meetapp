@@ -30,36 +30,11 @@
 </head>
 <!-- SET THE CONTROLLER -->
 <body ng-controller="mainController">
-	<script>
-// 		 $(document).ready(function(d, s, id){
-// 		   var js, fjs = d.getElementsByTagName(s)[0];
-// 		   if (d.getElementById(id)) {return;}
-// 		   js = d.createElement(s); js.id = id;
-// 		   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-// 		   fjs.parentNode.insertBefore(js, fjs);
-// 		 }(document, 'script', 'Messenger'));
-	</script>
-	<script>
-	// 	var messageToShare = { ... };
-
-	//  	MessengerExtensions.beginShareFlow(function success(response) {
-	//  		if(response.is_sent === true){
-	//  			// User shared. We're done here!
-	//  			MessengerExtensions.requestCloseBrowser();
-	//  			}
-	// 		else{
-	//  		// User canceled their share!
-
-	//  		}
-	//  	},
-	//  	function error(errorCode, errorMessage) {
-	//  	// An error occurred trying to share!
-	//  	},
-	//  	messageToShare,
-	//  	"current_thread");
+<script>
+		context = {}
 		$(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
- 		 	var context = thread_context;
+ 		 	context = thread_context;
 			document.getElementById("mapholder").innerHTML = JSON.stringify(context);
 		    	$.ajax({
 			    url: '/state',
@@ -82,63 +57,41 @@
  		  }
 		 )});
 
+		$('#preference').click(function(){
+			context['pref'] = $("textPref").val()
+		    	$.ajax({
+			    url: '/preference',
+			    data: context,
+			    cache: false,
+			    type: 'POST',
+			    success: function(response) {
+			    $('#demo').html(JSON.stringify(response));
+			    },
+			    error: function(error) {
+				console.log(error);
+			    }
+			});
+		});
 
-	</script>
-<script>
-var x = document.getElementById("demo");
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
 
-function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
-    document.getElementById("mapholder").innerHTML = latlon;
-    // var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
-    // +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
-    // document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
-}
-//To use this code on your website, get a free API key from Google.
-//Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
-
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
 </script>
+
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
-			<h1>Where do you want to meet?<span class="label label-info">{{ todos.length }}</span></h1>
+		<h1>Where do you want to meet?</h1>
 		<div id="todo-form" class="row">
 			<div class="col-sm-8 col-sm-offset-2 text-center">
 				<form>
 					<div class="form-group">
 
-						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="cafe or bar or whatever" ng-model="formData.text">
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="input" class="btn btn-primary btn-lg" id="sendlocation">Send Location</button>
-					<button onclick="getLocation()">Try It</button>
-					<p id="demo">Click the button to get your position.</p>
+					<button type="input" class="btn btn-primary btn-lg" id="preference">Proceed</button>
+					<p id="demo">results here</p>
 					<div id="mapholder"></div>
 				</form>
 			</div>
