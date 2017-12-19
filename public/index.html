@@ -59,7 +59,6 @@
 		$('#preference').click(function(e){
 			$('#demo').html("CLicked Prefbut");
 			var pref = $("#textPref").val()
-			$('#demo').html(context['pref'])
 		    	$.ajax({
 			    url: '/preference',
 			    data: {'c':context,'pref':pref},
