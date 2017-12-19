@@ -5,7 +5,7 @@ module.exports = function (app) {
 		console.log("get state");
 		var senderID = req.body.psid;
 		var threadID = req.body.tid;
-		console.log(threadID);
+		console.log(req.body);
 		if(stateInfo[threadID]){
 			res.json(stateInfo[threadID]);
 		}
