@@ -22,6 +22,7 @@ module.exports = function (app) {
 	});
 	app.post('/preference',function (req,res){
 		console.log("whoa");
+		console.log(req)
 		var preference = req.pref;
 		var query = req.c;
 		console.log("revel");
