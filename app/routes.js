@@ -23,12 +23,12 @@ module.exports = function (app) {
 	app.post('/preference',function (req,res){
 		console.log("whoa");
 		console.log(req.body.c, req.body.pref)
-		var preference = req.pref;
-		var query = req.c;
+		var preference = req.body.pref;
+		var query = req.body.c;
 		console.log("revel");
 		console.log(query)
-		var senderID = query['c']['psid'];
-		var threadID = query['c']['tid'];
+		var senderID = query.psid;
+		var threadID = query.tid;
 		console.log(threadID);
 		stateInfo[threadID]["state"] = 1;
 		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
