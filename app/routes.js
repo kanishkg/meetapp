@@ -60,7 +60,7 @@ module.exports = function (app) {
 		threadID = req.tid;
 		if(stateInfo[threadID]["state"] === 1){
 			location = req.loc;
-			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
+			stateInfo[threadID]["users"].indexOf(senderID) == -1 ? stateInfo[threadID]["users"].push(senderID);
 			stateInfo[threadID]["locations"][senderID]= location;
 		}
 		else if(stateInfo[threadID]["state" === 0]){
