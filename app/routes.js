@@ -60,13 +60,13 @@ module.exports = function (app) {
 		var threadID = req.tid;
 		if(stateInfo[threadID]["state"] === 1){
 			var loc = req.loc;
-		//	stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
+			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
 			stateInfo[threadID]["locations"][senderID]= loc;
 		}
 		else if(stateInfo[threadID]["state" === 0]){
 			var preference = req.pref;
 			stateInfo[threadID]["state"] = 1;
-			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
+			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
 			stateInfo[threadID]["preference"]= pref;
 		}
 		res.json(stateInfo[threadID])
