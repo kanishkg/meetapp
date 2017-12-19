@@ -23,7 +23,7 @@ module.exports = function (app) {
 	app.post('/preference',function (req,res){
 		console.log("whoa");
 		var preference = req.pref;
-		var query = req.query;
+		var query = req.c;
 		console.log("revel");
 		console.log(query)
 		var senderID = query['c']['psid'];
