@@ -62,7 +62,7 @@
 			$('#demo').html(context['pref'])
 		    	$.ajax({
 			    url: '/preference',
-			    data: {'c':context,'pref':pref}
+			    data: {'c':context,'pref':pref},
 			    cache: false,
 			    type: 'POST',
 			    success: function(response) {
