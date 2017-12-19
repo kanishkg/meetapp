@@ -57,15 +57,31 @@
 	//  	},
 	//  	messageToShare,
 	//  	"current_thread");
-$(document).ready(function(){MessengerExtensions.getContext('131709420816962',
+		$(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
  		 	var context = thread_context;
 			document.getElementById("mapholder").innerHTML = JSON.stringify(context);
+		    	$.ajax({
+			    url: '/state',
+			    data: context,
+			    type: 'GET',
+			    cache: false,
+			    success: function(response) {
+
+			    $('#demo').html(JSON.stringify(response));
+				console.log(response);
+			    },
+			    error: function(error) {
+				console.log(error);
+			    }
+			});
+
+			});
  		 },
  		 function error(err){
  		    // error
  		  }
- )});
+		 )});
 
 
 	</script>
