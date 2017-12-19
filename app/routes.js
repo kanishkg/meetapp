@@ -1,7 +1,7 @@
 //var Todo = require('./models/todo');
 var stateInfo = {}
 module.exports = function (app) {
-	app.get('/state',function (req,res){
+	app.post('/state',function (req,res){
 		console.log("get state");
 		var senderID = req.body.psid;
 		var threadID = req.body.tid;
