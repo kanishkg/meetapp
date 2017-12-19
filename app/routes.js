@@ -17,23 +17,24 @@ module.exports = function (app) {
 			stateInfo[threadID]["preference"] = [];
 			stateInfo[threadID]["recommendations"] = [];
 			//addtime
+			console.log(stateInfo);
 			res.json(stateInfo[threadID]);
 		}
 	});
 	app.post('/preference',function (req,res){
 		console.log("whoa");
-		console.log(req.body.c, req.body.pref)
+		console.log(req.body.c, req.body.pref);
 		var preference = req.body.pref;
 		var query = req.body.c;
 		console.log("revel");
-		console.log(query)
+		console.log(query);
 		var senderID = query.psid;
 		var threadID = query.tid;
 		console.log(threadID);
 		stateInfo[threadID]["state"] = 1;
 		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
 		stateInfo[threadID]["preference"]= pref;
-		res.json(stateInfo[threadID])
+		res.json(stateInfo[threadID]);
 	});
     // application -------------------------------------------------------------
     app.get('/', function (req, res) {
