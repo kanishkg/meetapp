@@ -21,8 +21,8 @@ module.exports = function (app) {
 		}
 	});
 	app.post('/preference',function (req,res){
-		var senderID = req.psid;
-		var threadID = req.tid;
+		var senderID = req.c.psid;
+		var threadID = req.c.tid;
 		console.log(JSON.stringify(req));
 		var preference = req.pref;
 		stateInfo[threadID]["state"] = 1;

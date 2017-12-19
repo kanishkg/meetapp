@@ -58,11 +58,11 @@
 		 )
 		$('#preference').click(function(e){
 			$('#demo').html("CLicked Prefbut");
-			context['pref'] = $("#textPref").val()
+			var pref = $("#textPref").val()
 			$('#demo').html(context['pref'])
 		    	$.ajax({
 			    url: '/preference',
-			    data: context,
+			    data: {'c':context,'pref':pref}
 			    cache: false,
 			    type: 'POST',
 			    success: function(response) {
