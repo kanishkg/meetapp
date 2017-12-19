@@ -46,6 +46,7 @@ module.exports = function (app) {
 			res.json(stateInfo[threadID]);
 		}
 		else{
+			stateInfo[threadID] = {}
 			stateInfo[threadID]["state"] = 0;
 			stateInfo[threadID]["users"] = [];
 			stateInfo[threadID]["locations"] = {};
