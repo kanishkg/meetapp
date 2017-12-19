@@ -20,12 +20,11 @@ module.exports = function (app) {
 			res.json(stateInfo[threadID]);
 		}
 	});
-	app.get('/preference',function (req,res){
+	app.post('/preference',function (req,res){
 		var preference = req.pref;
 		var context = req.c;
-		console.log(req);
 		var senderID = context['psid'];
-		var threadID = c['tid'];
+		var threadID = context['tid'];
 		stateInfo[threadID]["state"] = 1;
 		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
 		stateInfo[threadID]["preference"]= pref;
