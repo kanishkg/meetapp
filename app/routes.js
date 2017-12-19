@@ -23,6 +23,7 @@ module.exports = function (app) {
 	app.post('/preference',function (req,res){
 		var senderID = req.psid;
 		var threadID = req.tid;
+		console.log(JSON.stringify(req));
 		var preference = req.pref;
 		stateInfo[threadID]["state"] = 1;
 		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
