@@ -63,7 +63,7 @@
 			    url: '/preference',
 			    data: {'c':context,'pref':pref},
 			    cache: false,
-			    type: 'GET',
+			    type: 'POST',
 			    success: function(response) {
 			    $('#demo').html(JSON.stringify(response));
 			    },
