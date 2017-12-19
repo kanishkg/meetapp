@@ -59,9 +59,9 @@ module.exports = function (app) {
 		var senderID = req.psid;
 		var threadID = req.tid;
 		if(stateInfo[threadID]["state"] === 1){
-			var location = req.loc;
-			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
-			stateInfo[threadID]["locations"][senderID]= location;
+			var loc = req.loc;
+		//	stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
+			stateInfo[threadID]["locations"][senderID]= loc;
 		}
 		else if(stateInfo[threadID]["state" === 0]){
 			var preference = req.pref;
