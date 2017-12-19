@@ -58,14 +58,14 @@
 		 )});
 
 		$('#preference').click(function(){
-			$('#demo').html("CLicked Prefbut")
+			$('#demo').html("CLicked Prefbut");
 			context['pref'] = $("#textPref").val()
 			$('#demo').html(context['pref'])
 		    	$.ajax({
 			    url: '/preference',
 			    data: context,
 			    cache: false,
-			    type: 'POST',
+			    type: 'GET',
 			    success: function(response) {
 			    $('#demo').html(JSON.stringify(response));
 			    },
@@ -74,8 +74,6 @@
 			    }
 			});
 		});
-
-
 
 </script>
 
