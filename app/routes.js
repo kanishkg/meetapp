@@ -21,11 +21,11 @@ module.exports = function (app) {
 		}
 	});
 	app.get('/preference',function (req,res){
+		var preference = req.pref;
 		var context = req.c;
-		console.log(JSON.stringify(context));
+		console.log(req);
 		var senderID = context.psid;
 		var threadID = req.c.tid;
-		var preference = req.pref;
 		stateInfo[threadID]["state"] = 1;
 		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
 		stateInfo[threadID]["preference"]= pref;
