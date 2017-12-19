@@ -33,7 +33,7 @@ module.exports = function (app) {
 		console.log(threadID);
 		stateInfo[threadID]["state"] = 1;
 		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
-		stateInfo[threadID]["preference"]= pref;
+		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
     // application -------------------------------------------------------------
