@@ -39,8 +39,8 @@ module.exports = function (app) {
     	//});
 	app.get('/state',function (req,res){
 		console.log("get state");
-		senderID = req.psid;
-		threadID = req.tid;
+		var senderID = req.psid;
+		var threadID = req.tid;
 		console.log(threadID);
 		if(stateInfo[threadID]){
 			res.json(stateInfo[threadID]);
@@ -56,15 +56,15 @@ module.exports = function (app) {
 		}
 	});
 	app.post('/state',function (req,res){
-		senderID = req.psid;
-		threadID = req.tid;
+		var senderID = req.psid;
+		var threadID = req.tid;
 		if(stateInfo[threadID]["state"] === 1){
-			location = req.loc;
-			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID)
+			var location = req.loc;
+			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
 			stateInfo[threadID]["locations"][senderID]= location;
 		}
 		else if(stateInfo[threadID]["state" === 0]){
-			preference = req.pref;
+			var preference = req.pref;
 			stateInfo[threadID]["state"] = 1;
 			stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID);
 			stateInfo[threadID]["preference"]= pref;
