@@ -23,7 +23,6 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
 
 	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
-	<script src="js/services/todos.js"></script> <!-- load our todo service -->
 	<script src="js/core.js"></script> <!-- load our main application -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://connect.facebook.com/en_US/messenger.Extensions.js"></script>
@@ -65,7 +64,9 @@
 			    cache: false,
 			    type: 'POST',
 			    success: function(response) {
-			    $('#demo').html(JSON.stringify(response));
+			    var preference = JSON.parse(response);
+			    $('#demo').html(preference.preference);
+
 			    },
 			    error: function(error) {
 				console.log(error);
@@ -75,27 +76,33 @@
 });
 </script>
 
-	<div class="container">
+	<div class="page1 container">
 
 		<!-- HEADER AND TODO COUNT -->
 		<h1>Where do you want to meet?</h1>
 		<div id="todo-form" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
-					<div class="form-group">
+			<form>
+				<div class="form-group">
 
-						<input type="text" class="form-control input-lg text-center" id="textPref" placeholder="cafe or bar or whatever" ng-model="formData.text">
-					</div>
+					<input type="text" class="form-control input-lg text-center" id="textPref" placeholder="cafe or bar or whatever" ng-model="formData.text">
+				</div>
 
-					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="input" class="btn btn-primary btn-lg" id="preference">Proceed</button>
-					<p id="demo">results here</p>
-					<div id="mapholder"></div>
-				</form>
-			</div>
+				<!-- createToDo() WILL CREATE NEW TODOS -->
+				<button type="input" class="btn btn-primary btn-lg" id="preference">Proceed</button>
+				<p id="demo">results here</p>
+				<div id="mapholder"></div>
+			</form>
 		</div>
 
 
+	</div>
+	<div class="page2 container">
+		<h1>Update Locations</h1>
+		<h3>Share this link in the chat window so your friends can add their locations</h3>
+		<div id = "locList">
+		</div>
+		<button type="input" class="btn btn-primary btn-lg" id="locButton">Add/update my location</button>
+		<div id='preference'></div>
 	</div>
 
 </body>
