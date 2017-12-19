@@ -58,7 +58,7 @@
 		 )});
 
 		$('#preference').click(function(){
-			context['pref'] = $("textPref").val()
+			context['pref'] = $("#textPref").val()
 		    	$.ajax({
 			    url: '/preference',
 			    data: context,
