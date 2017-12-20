@@ -45,10 +45,10 @@ module.exports = function (app) {
 // 		res.sendFile('/app/public/enter_location.html');
 // 	});
 	
-	app.post('/sendLoc',function (req,res){
+	app.get('/sendLoc',function (req,res){
 		var tid = req.body.tid;
 		var psid = req.body.psid;
-		var loc = {"add":req.body.add,"lat":req.body.lat,"lon":req.body.lon};
+		var loc = {"addr":req.body.add,"lat":req.body.lat,"lon":req.body.lon};
 		stateInfo[tid]["loacations"][psid] = loc;
 		res.render('/app/public/index.html');
 	});
