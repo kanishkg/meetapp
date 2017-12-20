@@ -59,8 +59,8 @@ module.exports = function (app) {
 
 app.get('/getloc',function (req,res){
 	console.log("getting loc",req);
-	var tid = req.body.tid;
-	var psid = req.body.psid;
+	var tid = req.query.tid;
+	var psid = req.query.psid;
 	console.log(tid,'break',psid);
 	res.render('/app/public/enter_location.html',{tid:1,psid:2});
 });
