@@ -41,7 +41,8 @@ module.exports = function (app) {
 	app.get('/getloc',function (req,res){
 		var tid = req.body.tid;
 		var psid = req.body.psid;
-		res.render('/app/public/enter_location.html',{tid:tid,psid:psid});
+		//res.render('/app/public/enter_location.html',{tid:tid,psid:psid});
+		res.sendFile('/app/public/enter_location.html');
 	});
 	app.post('/sendLoc',function (req,res){
 		var tid = req.body.tid;
