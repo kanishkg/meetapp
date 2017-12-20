@@ -41,9 +41,15 @@
 			    type: 'POST',
 			    cache: false,
 			    success: function(response) {
-			    //var preference = JSON.parse(response);
-			    $('#demo').html(JSON.stringify(response));
-				console.log(response);
+			    var preference = JSON.parse(response);
+			    if(preference.preference){
+				    $('#demo').html(preference.preference);
+				    console.log(response);
+			    }
+			    else{
+				    $('#demo').html(JSON.stringify(response));
+
+			    }
 			    },
 			    error: function(error) {
 				console.log(error);
