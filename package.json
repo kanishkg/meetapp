@@ -11,6 +11,7 @@
     "mongoose": "^4.4.12",
     "morgan": "^1.1.1",
     "ejs":"latest",
-    "consolidate":"latest"
+    "consolidate":"latest",
+    "mustache":"latest"
   }
 }
