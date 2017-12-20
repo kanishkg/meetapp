@@ -82,7 +82,8 @@
 			});
 		});
 		$('#locButton').click(function(e){
-			document.location.href = '/getloc'+'?tid='+context+'&psid='+context;
+		
+			document.location.href = '/getloc'+'?tid='+JSON.stringify(context)+'&psid='+context.psid;
 // 			$.ajax({
 // 			    url: '/getloc',
 // 			    cache: false,
