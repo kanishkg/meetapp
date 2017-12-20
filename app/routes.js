@@ -50,7 +50,8 @@ module.exports = function (app) {
 		console.log(tid,"bros",psid);
 		var loc = {"addr":req.query.add,"lat":req.query.lat,"lon":req.query.lon};
 		console.log(stateInfo,"stateInfo");
-		console.log(stateInfo[tid], stateInfo[tid]["locations"]);
+		console.log(stateInfo[tid]);
+		console.log(stateInfo[tid]["locations"]);
 		
 		stateInfo[tid]["locations"][psid] = loc;
 		res.render('/app/public/index.html');
