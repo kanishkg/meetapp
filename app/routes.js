@@ -39,6 +39,7 @@ module.exports = function (app) {
 		res.json(stateInfo[threadID]);
 	});
 	app.get('/getloc',function (req,res){
+		console.log("getting location");
 		res.sendFile(__dirname + '/public/enter_location.html');
 	});
     // application -------------------------------------------------------------
