@@ -35,7 +35,6 @@ module.exports = function (app) {
 		if (stateInfo[threadID]["users"].indexOf(senderID) === -1){
 			stateInfo[threadID]["users"].push(senderID);
 		}
-		// stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID): pass;
 		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
