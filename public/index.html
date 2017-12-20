@@ -65,7 +65,7 @@
 			    type: 'POST',
 			    success: function(response) {
 			    var preference = JSON.parse(response);
-			    $('#demo').html(JSON.stringify(response));
+			    $('#demo').html(preference.preference);
 
 			    },
 			    error: function(error) {
