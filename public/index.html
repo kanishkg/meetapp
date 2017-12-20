@@ -42,9 +42,7 @@
 			    cache: false,
 			    success: function(response) {
 			    var preference = JSON.parse(response);
-			    if (preference{
-			    $('#demo').html(preference);
-			    }
+			    $('#demo').html(JSON.stringify(response));
 				console.log(response);
 			    },
 			    error: function(error) {
