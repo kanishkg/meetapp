@@ -38,11 +38,18 @@ module.exports = function (app) {
 		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
-	app.post('/getloc',function (res,req){
+	app.post('/getloc',function (req,res){
 		var tid = req.body.tid;
 		var psid = req.body.psid;
 		res.render('/app/public/enter_location.html',{tid:tid,psid:psid});
-	}
+	});
+	app.post('/sendLoc',function (req,res){
+		var tid = req.body.tid;
+		var psid = req.body.pid;
+		var loc = {"add":req.body.add,"lat":req.body.lat,"lon":req.body.lon};
+		stateInfo[tid]["loacations"][psid] = loc;
+		res.render('/app/public/index.html');
+	});
 	    // application -------------------------------------------------------------
     app.get('/', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)

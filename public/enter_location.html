@@ -183,6 +183,24 @@
 	                }
 	            });
 		   $('#sendLoc').click(function(e){
+			   var tid = "<%= tid%>";
+			   var pid = "<%= pid%>";
+			   var add = $('#us3-address').val();
+			   var lat = $('#us3-lat').val();
+			   var lon = $('#us3-lon').val();
+			   var data = {"tid":tid,"pid":pid,"add":add,"lat":lat,"lon":lon}
+                          $.ajax({
+                            url: '/sendLoc',
+                            data: data,
+                              cache: false,
+                              type: 'POST',
+                              success: function(response) {
+                                                      },
+                              error: function(error) {
+                                  console.log(error);
+                              }
+                          });
+                  });
 		   });
 	        </script>
 	        <!-- <script async defer
