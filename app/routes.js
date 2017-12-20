@@ -40,7 +40,7 @@ module.exports = function (app) {
 	});
 	app.get('/getloc',function (req,res){
 		console.log("getting location");
-		res.sendFile(__dirname + '/public/enter_location.html');
+		res.sendFile(__dirname + '../public/enter_location.html');
 	});
     // application -------------------------------------------------------------
     app.get('/', function (req, res) {
