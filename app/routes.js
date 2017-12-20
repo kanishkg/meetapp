@@ -17,7 +17,7 @@ module.exports = function (app) {
 			stateInfo[threadID]["preference"] = [];
 			stateInfo[threadID]["recommendations"] = [];
 			//addtime
-			console.log(stateInfo);
+			console.log(stateInfo[threadID]);
 			res.json(stateInfo[threadID]);
 		}
 	});

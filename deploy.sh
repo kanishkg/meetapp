@@ -6,5 +6,5 @@ fi
 git add .
 git commit -m  "$msg"
 git push
-git push heroku
+git push heroku master
 heroku logs --tail
