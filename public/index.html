@@ -41,9 +41,9 @@
 			    type: 'POST',
 			    cache: false,
 			    success: function(response) {
-			    var preference = JSON.parse(response);
+			    var preference = response;
 			    if(preference.preference){
-				    $('#demo').html(preference.preference);
+				    $('#demo').html("parsed");
 				    console.log(response);
 			    }
 			    else{
