@@ -82,12 +82,13 @@
 			});
 		});
 		$('#locButton').click(function(e){
+
 			$.ajax({
 			    url: '/getloc',
 			    cache: false,
 			    type: 'GET',
 			    success: function(response) {
-			    			    },
+			    	console.log("success", response);		    },
 			    error: function(error) {
 				console.log(error);
 			    }
