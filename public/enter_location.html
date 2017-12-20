@@ -37,9 +37,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <!-- SET THE CONTROLLER -->
-<body ng-controller="mainController">
+<body >
 
-	<div class="container">
+	<div class="container-fixed">
 
 			<div class="row">
                 <input type="text" class="form-control  text-center" placeholder="Enter Your Location" id="us3-address" />
@@ -47,7 +47,8 @@
 			<div class="row">
                 <button onclick="getLocation()" class="btn btn-primary btn-group" style="width:100%" type="button">My Location</button>
 			</div>
-			<div id="us3" ></div>
+
+			<div id="us3" style="width:100%; height:100%; position:fixed; overflow:hidden; top:0; left:0;" ></div>
 		<div class="row">
                 <button id="sendLoc" class="btn btn-primary btn-group" style="width:100%" type="button">Send Location</button>
 		</div>
@@ -65,7 +66,6 @@
             </div>
         </div>
 	        <script>
-
 		   //      function getLocation(){
 		   //      	if (navigator.geolocation) {
 					//     navigator.geolocation.getCurrentPosition(function (p) {
@@ -182,6 +182,8 @@
 	                    // alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
 	                }
 	            });
+		   $('#sendLoc').click(function(e){
+		   });
 	        </script>
 	        <!-- <script async defer
 		    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbWdoYInP-FIKBLMNQ3hu6lIVXrxebm3I&callback=initMap">

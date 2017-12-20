@@ -82,7 +82,17 @@
 			});
 		});
 		$('#locButton').click(function(e){
-			window.location.replace('/getloc');	
+			$.ajax({
+			    url: '/getloc',
+			    data: context,
+			    cache: false,
+			    type: 'POST',
+			    success: function(response) {
+			    			    },
+			    error: function(error) {
+				console.log(error);
+			    }
+			});
 		});
 });
 </script>
