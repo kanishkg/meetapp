@@ -124,6 +124,7 @@ $document.ready(function(){
 			   var addr = $('#us3-address').val();
 			   var lat = $('#us3-lat').val();
 			   var lon = $('#us3-lon').val();
+			   console.log("test: ", tid, psid, addr, lat, lon, e);
 			   var data = {"tid":tid,"psid":psid,"addr":addr,"lat":lat,"lon":lon}
 			   document = '/sendLoc'+'?tid='+tid+'&psid='+psid+'&addr='+addr+'&lat='+lat+'&lon='+lon;
 		  });
