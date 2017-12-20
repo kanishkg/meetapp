@@ -49,7 +49,7 @@ module.exports = function (app) {
 		var psid = req.query.psid;
 		console.log(tid,"bros",psid);
 		var loc = {"addr":req.query.add,"lat":req.query.lat,"lon":req.query.lon};
-		stateInfo[tid]["loacations"][psid] = loc;
+		stateInfo[tid]["locations"][psid] = loc;
 		res.render('/app/public/index.html');
 	});
 	    // application -------------------------------------------------------------
