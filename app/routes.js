@@ -38,7 +38,7 @@ module.exports = function (app) {
 		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
-	app.get('/locget',function (req,res){
+	app.get('/getloc',function (req,res){
 		res.sendFile(__dirname + '/public/enter_location.html');
 	});
     // application -------------------------------------------------------------
