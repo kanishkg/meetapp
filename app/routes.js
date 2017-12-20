@@ -44,11 +44,11 @@ module.exports = function (app) {
 // 		//res.render('/app/public/enter_location.html',{tid:tid,psid:psid});
 // 		res.sendFile('/app/public/enter_location.html');
 // 	});
-	
 	app.get('/sendLoc',function (req,res){
-		var tid = req.body.tid;
-		var psid = req.body.psid;
-		var loc = {"addr":req.body.add,"lat":req.body.lat,"lon":req.body.lon};
+		var tid = req.query.tid;
+		var psid = req.query.psid;
+		console.log(tid,"bros",psid);
+		var loc = {"addr":req.query.add,"lat":req.query.lat,"lon":req.query.lon};
 		stateInfo[tid]["loacations"][psid] = loc;
 		res.render('/app/public/index.html');
 	});
@@ -58,7 +58,7 @@ module.exports = function (app) {
     });
 
 app.get('/getloc',function (req,res){
-	console.log("getting loc",req);
+	console.log("getting loc");
 	var tid = req.query.tid;
 	var psid = req.query.psid;
 	console.log(tid,'break',psid);
