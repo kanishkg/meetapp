@@ -79,25 +79,26 @@
 					// alert("Location changed. New location (" + position.coords.latitude + ", " + position.coords.longitude + ")");
 				    // x.innerHTML = "Latitude: " + position.coords.latitude + 
 				    // "<br>Longitude: " + position.coords.longitude;
-				    $('#us3').empty();	
-				    $('#us3').locationpicker({
-		                location: {
-		                    latitude: position.coords.latitude,
-		                    longitude: position.coords.longitude
-		                },
-		                radius: 0,
-		                inputBinding: {
-		                    latitudeInput: $('#us3-lat'),
-		                    longitudeInput: $('#us3-lon'),
-		                    radiusInput: $('#us3-radius'),
-		                    locationNameInput: $('#us3-address')
-		                },
-		                enableAutocomplete: true,
-		                onchanged: function (currentLocation, radius, isMarkerDropped) {
-		                    // Uncomment line below to show alert on each Location Changed event
-		                    // alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
-		                }
-		            });
+					$('#us3').locationpicker("location", {latitude: position.coords.latitude, longitude: position.coords.longitude:})
+
+// 					$('#us3').locationpicker({
+// 		                location: {
+// 		                    latitude: position.coords.latitude,
+// 		                    longitude: position.coords.longitude
+// 		                },
+// 		                radius: 0,
+// 		                inputBinding: {
+// 		                    latitudeInput: $('#us3-lat'),
+// 		                    longitudeInput: $('#us3-lon'),
+// 		                    radiusInput: $('#us3-radius'),
+// 		                    locationNameInput: $('#us3-address')
+// 		                },
+// 		                enableAutocomplete: true,
+// 		                onchanged: function (currentLocation, radius, isMarkerDropped) {
+// 		                    // Uncomment line below to show alert on each Location Changed event
+// 		                    // alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+// 		                }
+// 		            });
 				}
 
 	            $('#us3').locationpicker({
