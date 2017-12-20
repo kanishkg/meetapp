@@ -45,11 +45,13 @@ module.exports = function (app) {
 // 		res.sendFile('/app/public/enter_location.html');
 // 	});
 	app.get('/sendLoc',function (req,res){
-		var tid = JSON.stringify(req.query.tid);
-		var psid = JSON.stringify(req.query.psid);
+		var tid = req.query.tid;
+		var psid = req.query.psid;
 		console.log(tid,"bros",psid);
 		var loc = {"addr":req.query.add,"lat":req.query.lat,"lon":req.query.lon};
 		console.log(stateInfo,"stateInfo");
+		console.log(stateInfo[tid], stateInfo[tid]["locations"]);
+		
 		stateInfo[tid]["locations"][psid] = loc;
 		res.render('/app/public/index.html');
 	});
