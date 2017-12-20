@@ -43,7 +43,7 @@ module.exports = function (app) {
 		var psid = req.body.psid;
 		res.render('/app/public/enter_location.html',{tid:tid,psid:psid});
 	});
-	app.post('/sendLoc',function (req,res){
+	app.get('/sendLoc',function (req,res){
 		var tid = req.body.tid;
 		var psid = req.body.psid;
 		var loc = {"add":req.body.add,"lat":req.body.lat,"lon":req.body.lon};
@@ -54,10 +54,6 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
-    app.get('/getloc',function (req,res){
-		console.log("getting location");
-		res.sendFile( '/app/public/enter_location.html');
-	});
 
 
 };
