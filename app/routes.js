@@ -58,6 +58,10 @@ module.exports = function (app) {
     });
 
 app.get('/getloc',function (req,res){
+	console.log("getting loc");
+	var tid = req.body.tid;
+	var psid = req.body.psid;
+	console.log(tid,'break',psid);
 	res.render('/app/public/enter_location.html',{tid:1,psid:2});
 });
 };
