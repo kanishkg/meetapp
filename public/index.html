@@ -45,7 +45,7 @@
 			    if (state.state===1){
 			    	$('.page1').hide();
 				$('.page2').show();
-				$('#preference').html(state.preference);
+				$('#ppref').html(state.preference);
 			    }
 			    if(state.state === 0){
 				    $('.page1').show();
@@ -75,10 +75,7 @@
 			    cache: false,
 			    type: 'POST',
 			    success: function(response) {
-			    var preference = JSON.parse(response);
-			    $('#demo').html(preference.preference);
-
-			    },
+			    			    },
 			    error: function(error) {
 				console.log(error);
 			    }
@@ -113,7 +110,7 @@
 		<div id = "locList">
 		</div>
 		<button type="input" class="btn btn-primary btn-lg" id="locButton">Add/update my location</button>
-		<p id='preference'></p>
+		<p id="ppref"></p>
 	</div>
 
 </body>
