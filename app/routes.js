@@ -58,6 +58,6 @@ module.exports = function (app) {
     });
 
 app.get('/getloc',function (req,res){
-	res.sendFile(__dirname+'/public/enter_location.html');
+	res.sendFile('/app/public/enter_location.html');
 });
 };
