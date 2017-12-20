@@ -43,7 +43,7 @@
 			    success: function(response) {
 			    var preference = response;
 			    if(preference.preference){
-				    $('#demo').html("parsed");
+				    $('#demo').html(preference.preference);
 				    console.log(response);
 			    }
 			    else{
