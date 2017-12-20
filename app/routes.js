@@ -32,7 +32,10 @@ module.exports = function (app) {
 		var threadID = query.tid;
 		console.log(threadID);
 		stateInfo[threadID]["state"] = 1;
-		stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID):pass;
+		if (stateInfo[threadID]["users"].indexOf(senderID) === -1){
+			stateInfo[threadID]["users"].push(senderID);
+		}
+		// stateInfo[threadID]["users"].indexOf(senderID) === -1 ? stateInfo[threadID]["users"].push(senderID): pass;
 		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
