@@ -41,14 +41,19 @@
 			    type: 'POST',
 			    cache: false,
 			    success: function(response) {
-			    var preference = response;
-			    if(preference.preference){
-				    $('#demo').html(preference.preference);
+			    var state = response;
+			    if (state.state===1){
+			    	$('.page1').hide();
+				$('.page2').show();
+				$('#preference').html(preference.preference);
+			    }
+			    if(state.state === 0){
+				    $('.page1').show();
+				    $('.page2').hide();
 				    console.log(response);
 			    }
 			    else{
 				    $('#demo').html(JSON.stringify(response));
-
 			    }
 			    },
 			    error: function(error) {
