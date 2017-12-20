@@ -45,7 +45,7 @@ module.exports = function (app) {
 	});
 	app.post('/sendLoc',function (req,res){
 		var tid = req.body.tid;
-		var psid = req.body.pid;
+		var psid = req.body.psid;
 		var loc = {"add":req.body.add,"lat":req.body.lat,"lon":req.body.lon};
 		stateInfo[tid]["loacations"][psid] = loc;
 		res.render('/app/public/index.html');

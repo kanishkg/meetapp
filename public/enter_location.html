@@ -184,11 +184,11 @@
 	            });
 		   $('#sendLoc').click(function(e){
 			   var tid = "<%= tid%>";
-			   var pid = "<%= pid%>";
+			   var psid = "<%= psid%>";
 			   var add = $('#us3-address').val();
 			   var lat = $('#us3-lat').val();
 			   var lon = $('#us3-lon').val();
-			   var data = {"tid":tid,"pid":pid,"add":add,"lat":lat,"lon":lon}
+			   var data = {"tid":tid,"psid":psid,"add":add,"lat":lat,"lon":lon}
                           $.ajax({
                             url: '/sendLoc',
                             data: data,
