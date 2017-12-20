@@ -77,6 +77,16 @@
 				
 				function test(){
 					console.log("function is being cakled===");
+					   console.log("testing!");
+					   var tid = "<%= tid%>";
+					   var psid = "<%= psid%>";
+					   var addr = $('#us3-address').val();
+					   var lat = $('#us3-lat').val();
+					   var lon = $('#us3-lon').val();
+					   console.log("test: ", tid, psid, addr, lat, lon, e);
+					   var data = {"tid":tid,"psid":psid,"addr":addr,"lat":lat,"lon":lon}
+					   document.location.href = '/sendLoc'+'?tid='+tid+'&psid='+psid+'&addr='+addr+'&lat='+lat+'&lon='+lon;
+		
 				}
 				
 				function showPosition(position) {
@@ -123,19 +133,19 @@
 	                    // alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
 	                }
 	            });
-$document.ready(function(){
-		   $('#sendLoc').click(function(e){
-			   console.log("testing!");
-			   var tid = "<%= tid%>";
-			   var psid = "<%= psid%>";
-			   var addr = $('#us3-address').val();
-			   var lat = $('#us3-lat').val();
-			   var lon = $('#us3-lon').val();
-			   console.log("test: ", tid, psid, addr, lat, lon, e);
-			   var data = {"tid":tid,"psid":psid,"addr":addr,"lat":lat,"lon":lon}
-			   document = '/sendLoc'+'?tid='+tid+'&psid='+psid+'&addr='+addr+'&lat='+lat+'&lon='+lon;
-		  });
-});
+// $document.ready(function(){
+// 		   $('#sendLoc').click(function(e){
+// 			   console.log("testing!");
+// 			   var tid = "<%= tid%>";
+// 			   var psid = "<%= psid%>";
+// 			   var addr = $('#us3-address').val();
+// 			   var lat = $('#us3-lat').val();
+// 			   var lon = $('#us3-lon').val();
+// 			   console.log("test: ", tid, psid, addr, lat, lon, e);
+// 			   var data = {"tid":tid,"psid":psid,"addr":addr,"lat":lat,"lon":lon}
+// 			   document.location.href = '/sendLoc'+'?tid='+tid+'&psid='+psid+'&addr='+addr+'&lat='+lat+'&lon='+lon;
+// 		  });
+// });
 	        </script>
 	        <!-- <script async defer
 		    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbWdoYInP-FIKBLMNQ3hu6lIVXrxebm3I&callback=initMap">
