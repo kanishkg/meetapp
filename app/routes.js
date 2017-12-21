@@ -57,6 +57,8 @@ module.exports = function (app) {
 		console.log(stateInfo[tid]["locations"]);
 		request.get('https://graph.facebook.com/v2.6/'+psid+"?fields=first_name,last_name,profile_pic&access_token=EAAB3yf09ykIBAA9fbiBBWm3iVK2tiwHDh3tDGJOT1ENOkkyLyZBNtZBYZBmFLZBhVnDGc2iKCSzTZArETftKTvuDGGXgRTo4v5DX37LXPvuMykSkDHP8sWWo2ym2mpk7QEUIx3RHZC2MBE9DbIwZBvSq4L64QZCvmE1bZCxZCZCW8RNjAZDZD"
  ,{},function(err,res,body){
+	 body = JSON.parse(body);
+
 	 console.log(body,"body",body.first_name,body["first_name"]);
 	 name = body.first_name+' '+ body.last_name;
 });
