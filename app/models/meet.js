@@ -13,7 +13,7 @@ module.exports = {
   findCandidates: function (listCoords, type_of_place, preference, cb) {
     type_of_place = type_of_place.toLowerCase();
     preference = preference.toLowerCase();
-      
+     var locs = listCoords; 
       pref = preference;
       typeOfPlace = type_of_place;
       console.log("type of place and pref: ", typeOfPlace, pref);
