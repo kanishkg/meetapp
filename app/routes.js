@@ -47,7 +47,7 @@ module.exports = function (app) {
 	app.get('/sendLoc',function (req,res){
 		var tid = req.query.tid;
 		var psid = req.query.psid;
-		console.log(tid,"bros",psid);
+		console.log(tid,"bros",req.query.addr);
 		var loc = {"addr":req.query.addr,"lat":req.query.lat,"lon":req.query.lon};
 		console.log(stateInfo,"stateInfo");
 		console.log(stateInfo[tid]);
