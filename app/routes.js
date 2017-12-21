@@ -60,9 +60,11 @@ module.exports = function (app) {
 	 body = JSON.parse(body);
 
 	 name = body.first_name;
+
+	 stateInfo[tid]["locations"][psid] = [loc,name];
+	 console.log(stateInfo[tid]["locations"][psid]);
 });
 		console.log(name,"name");
-		stateInfo[tid]["locations"][psid] = [loc,name];
 		res.render('/app/public/index.html');
 	});
 	    // application -------------------------------------------------------------
