@@ -42,8 +42,9 @@ module.exports = function (app) {
 		res.json(stateInfo[threadID]);
 	});
 	app.post('/getResults',function(req,res){
+		console.log("Getting Results");
 		var optimize = 'magic_recipe';
-		var tid = req.body.context.tid;
+		var tid = req.body.tid;
 		var preference = stateInfo[tid].preference;
 		var locations = Object.values(stateInfo[tid].locations);
 		var listCoords = [];
