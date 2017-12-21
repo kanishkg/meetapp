@@ -47,10 +47,12 @@ module.exports = function (app) {
 		var tid = req.body.tid;
 		var preference = stateInfo[tid].preference;
 		var locations = Object.values(stateInfo[tid].locations);
+		console.log(location,"locations");
 		var listCoords = [];
-		locations.forEach( function (arrayItem)
+		locations.forEach(function (arrayItem)
 			{
-			    listCoords.push({"lat":arrayItem.lat,"lng":arrayItem.lng});
+			    console.log(arrayItem,"arrayItem");
+			    listCoords.push({"lat":arrayItem.lat,"lng":arrayItem.lon});
 			});
 		var recommendations = meet.findCandidates(listCoords, preference, optimize);
 		stateInfo[tid].recommendations = recommendations;
