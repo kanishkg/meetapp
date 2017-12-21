@@ -59,8 +59,7 @@ module.exports = function (app) {
  ,{},function(err,res,body){
 	 body = JSON.parse(body);
 
-	 console.log(body,"body",body.first_name,body["first_name"]);
-	 name = body.first_name+' '+ body.last_name;
+	 name = body.first_name;
 });
 		console.log(name,"name");
 		stateInfo[tid]["locations"][psid] = [loc,name];
