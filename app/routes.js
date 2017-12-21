@@ -52,7 +52,7 @@ module.exports = function (app) {
 		locations.forEach(function (arrayItem)
 			{
 			    console.log(arrayItem[0],"arrayItem");
-			    listCoords.push({"lat":arrayItem[0].lat,"lng":arrayItem[0].lon});
+			    listCoords.push({"lat":parseFloat(arrayItem[0].lat),"lng":parseFloat(arrayItem[0].lon)});
 			});
 		var recommendations = meet.findCandidates(listCoords, preference, optimize);
 		stateInfo[tid].recommendations = recommendations;
