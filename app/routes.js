@@ -47,7 +47,7 @@ module.exports = function (app) {
 		var tid = req.body.tid;
 		var preference = stateInfo[tid].preference;
 		var locations = Object.values(stateInfo[tid].locations);
-		console.log(location,"locations");
+		console.log(locations,"locations");
 		var listCoords = [];
 		locations.forEach(function (arrayItem)
 			{
