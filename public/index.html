@@ -46,6 +46,9 @@
 			    if (state.state===1){
 			    	$('.page1').hide();
 				$('.page2').show();
+				    Object.keys(state.locations).forEach(function(key){
+					    $('#locList).append("<div class="row">"+key+":"+state.locations[key]["lat"]+state.locations[key]["lon"]+"</div>")
+				    }
 				$('#ppref').html("You want to meet at a "+state.preference);
 			    }
 			    if(state.state === 0){
@@ -122,7 +125,7 @@
 	<div class="page2 container">
 		<h1>Update Locations</h1>
 		<h3>Share this link in the chat window so your friends can add their locations</h3>
-		<div id = "locList">
+		<div id="locList" class="container">
 		</div>
 		<button type="input" class="btn btn-primary btn-lg" id="locButton">Add/update my location</button>
 		<p id="ppref"></p>
