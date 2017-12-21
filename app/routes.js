@@ -41,7 +41,7 @@ module.exports = function (app) {
 		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
-	app.post('/showResults',function(req,res){
+	app.post('/getResults',function(req,res){
 		var optimize = 'magic_recipe';
 		var tid = req.body.context.tid;
 		var preference = stateInfo[tid].preference;
