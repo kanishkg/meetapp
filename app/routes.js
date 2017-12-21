@@ -48,7 +48,7 @@ module.exports = function (app) {
 		var tid = req.query.tid;
 		var psid = req.query.psid;
 		console.log(tid,"bros",psid);
-		var loc = {"addr":req.query.add,"lat":req.query.lat,"lon":req.query.lon};
+		var loc = {"addr":req.query.addr,"lat":req.query.lat,"lon":req.query.lon};
 		console.log(stateInfo,"stateInfo");
 		console.log(stateInfo[tid]);
 		console.log(stateInfo[tid]["locations"]);
