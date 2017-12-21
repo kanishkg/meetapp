@@ -13,6 +13,10 @@
     "ejs":"latest",
     "consolidate":"latest",
     "mustache":"latest",
-    "request":"latest"
+    "request":"latest",
+    "body-parser": "latest",
+    "googlemaps": "^1.12.0",
+    "@google/maps": "^0.4.5",
+    "async": "latest"
   }
 }
