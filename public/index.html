@@ -47,7 +47,7 @@
 			    	$('.page1').hide();
 				$('.page2').show();
 				    Object.keys(state.locations).forEach(function(key){
-					    $('#locList).append("<div class="row">"+key+":"+state.locations[key]["lat"]+state.locations[key]["lon"]+"</div>")
+					    $('#locList').append("<div class="row">"+key+":"+state.locations[key]["lat"]+state.locations[key]["lon"]+"</div>")
 				    }
 				$('#ppref').html("You want to meet at a "+state.preference);
 			    }
