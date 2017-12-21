@@ -1,5 +1,7 @@
+//
 //var Todo = require('./models/todo');
-var stateInfo = {}
+var request=require('request');
+var stateInfo = {};
 module.exports = function (app) {
 	app.post('/state',function (req,res){
 		console.log("get state");
