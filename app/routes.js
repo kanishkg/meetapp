@@ -51,8 +51,8 @@ module.exports = function (app) {
 		var listCoords = [];
 		locations.forEach(function (arrayItem)
 			{
-			    console.log(arrayItem,"arrayItem");
-			    listCoords.push({"lat":arrayItem.lat,"lng":arrayItem.lon});
+			    console.log(arrayItem[0],"arrayItem");
+			    listCoords.push({"lat":arrayItem[0].lat,"lng":arrayItem[0].lon});
 			});
 		var recommendations = meet.findCandidates(listCoords, preference, optimize);
 		stateInfo[tid].recommendations = recommendations;
