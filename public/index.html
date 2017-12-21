@@ -31,6 +31,7 @@
 <body ng-controller="mainController">
 <script>
 		var context = {}
+		var state = {}
 		$(document).ready(function(){MessengerExtensions.getContext('131709420816962',
  		 function success(thread_context){
  		 	context = thread_context;
@@ -41,7 +42,7 @@
 			    type: 'POST',
 			    cache: false,
 			    success: function(response) {
-			    var state = response;
+			    state = response;
 			    console.log(state);
 			    if (state.state===1){
 			    	$('.page1').hide();
@@ -79,7 +80,6 @@
 		    if (isGranted) {
 		      // User has granted user_profile permission
 		    }
-		    
 		  }, function(errorCode, errorMessage) {
 		    // Error occurred
 		  },
@@ -100,19 +100,22 @@
 			    }
 			});
 		});
+		$('#showBut').click(function(e){
+		    	$.ajax({
+			    url: '/getResults',
+			    data: context,
+			    cache: false,
+			    type: 'POST',
+			    success: function(response) {
+			    			    },
+			    error: function(error) {
+				console.log(error);
+			    }
+			});
+		});
+
 		$('#locButton').click(function(e){
 			document.location.href = '/getloc'+'?tid='+context.tid+'&psid='+context.psid;
-// 			$.ajax({
-// 			    url: '/getloc',
-// 			    cache: false,
-// 			    type: 'GET',
-// 			    success: function(response) {
-// 			    	console.log("success", response);		    },
-// 			    error: function(error) {
-// 				console.log(error);
-// 			    }
-// 			});
-		});
 });
 </script>
 
@@ -143,6 +146,7 @@
 		</div>
 		<button type="input" class="btn btn-primary btn-lg" id="locButton">Add/update my location</button>
 		<p id="ppref"></p>
+		<button type="input" class="btn btn-primary btn-lg" id="showBut">Show what you GOOOT</button>
 	</div>
 
 </body>

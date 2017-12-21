@@ -1,6 +1,7 @@
 //
 //var Todo = require('./models/todo');
 var request=require('request');
+var meet=require('./models/meet.js');
 var stateInfo = {};
 module.exports = function (app) {
 	app.post('/state',function (req,res){
@@ -40,12 +41,23 @@ module.exports = function (app) {
 		stateInfo[threadID]["preference"]= preference;
 		res.json(stateInfo[threadID]);
 	});
-// 	app.get('/getloc',function (req,res){
-// 		var tid = req.body.tid;
-// 		var psid = req.body.psid;
-// 		//res.render('/app/public/enter_location.html',{tid:tid,psid:psid});
-// 		res.sendFile('/app/public/enter_location.html');
-// 	});
+	app.post('/showResults',function(req,res){
+		var optimize = 'magic_recipe';
+		var tid = req.body.context.tid;
+		var preference = stateInfo[tid].preference;
+		var locations = Object.values(stateInfo[tid].locations);
+		var listCoords = [];
+		locations.forEach( function (arrayItem)
+			{
+			    listCoords.push({"lat":arrayItem.lat,"lng":arrayItem.lng});
+			});
+		var recommendations = meet.findCandidates(listCoords, preference, optimize);
+		stateInfo[tid].recommendations = recommendations;
+		stateInfo[tid].state = 2;
+		console.log(stateInfo[tid],"recos");
+		res.json(stateInfo[tid]);
+	});
+
 	app.get('/sendLoc',function (req,res){
 		var tid = req.query.tid;
 		var psid = req.query.psid;
