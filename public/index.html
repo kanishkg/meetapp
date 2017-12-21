@@ -47,7 +47,7 @@
 			    	$('.page1').hide();
 				$('.page2').show();
 				    Object.keys(state.locations).forEach(function(key){
-					    $('#locList').append("<div class='row'>"+key+":"+state.locations[key]['lat']+state.locations[key]['lon']+"</div>");
+					    $('#locList').append("<div class='row'>"+state.locations[key][1]+":"+state.locations[key][0]['addr']+"</div>");
 				    });
 				$('#ppref').html("You want to meet at a "+state.preference);
 			    }
@@ -70,6 +70,21 @@
  		    // error
  		  }
 		 );
+		MessengerExtensions.askPermission(
+		  function(permission_response) {
+		    // Person grants or rejects the asked permission.
+		    let permissions = permission_response.permissions; // list of all permissions granted
+		    let isGranted = permission_response.isGranted;
+
+		    if (isGranted) {
+		      // User has granted user_profile permission
+		    }
+		    
+		  }, function(errorCode, errorMessage) {
+		    // Error occurred
+		  },
+		  "user_profile"
+		);
 		$('#preference').click(function(e){
 			$('#demo').html("CLicked Prefbut");
 			var pref = $("#textPref").val()
@@ -86,7 +101,6 @@
 			});
 		});
 		$('#locButton').click(function(e){
-		
 			document.location.href = '/getloc'+'?tid='+context.tid+'&psid='+context.psid;
 // 			$.ajax({
 // 			    url: '/getloc',

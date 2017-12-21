@@ -12,6 +12,7 @@
     "morgan": "^1.1.1",
     "ejs":"latest",
     "consolidate":"latest",
-    "mustache":"latest"
+    "mustache":"latest",
+    "request":"latest"
   }
 }

@@ -49,11 +49,15 @@ module.exports = function (app) {
 		var psid = req.query.psid;
 		console.log(tid,"bros",req.query.addr);
 		var loc = {"addr":req.query.addr,"lat":req.query.lat,"lon":req.query.lon};
+		var name = "";
 		console.log(stateInfo,"stateInfo");
 		console.log(stateInfo[tid]);
 		console.log(stateInfo[tid]["locations"]);
-		
-		stateInfo[tid]["locations"][psid] = loc;
+		request.get('https://graph.facebook.com/v2.6/'+psid+"?fields=first_name,last_name,profile_pic&access_token=EAAB3yf09ykIBAA9fbiBBWm3iVK2tiwHDh3tDGJOT1ENOkkyLyZBNtZBYZBmFLZBhVnDGc2iKCSzTZArETftKTvuDGGXgRTo4v5DX37LXPvuMykSkDHP8sWWo2ym2mpk7QEUIx3RHZC2MBE9DbIwZBvSq4L64QZCvmE1bZCxZCZCW8RNjAZDZD"
+ ,options,function(err,res,body){
+	 name = res.first_name+' '+res.last_name;
+});
+		stateInfo[tid]["locations"][psid] = [loc,name];
 		res.render('/app/public/index.html');
 	});
 	    // application -------------------------------------------------------------
