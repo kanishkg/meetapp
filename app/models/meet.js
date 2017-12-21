@@ -7,11 +7,13 @@ var sec = require('./smallest_enclosing_circle.js');
 var typeOfPlace = 'restaurant';
 var pref = 'magic_recipe';
 
+
+
 module.exports = {
   findCandidates: function (listCoords, type_of_place, preference, cb) {
     type_of_place = type_of_place.toLowerCase();
     preference = preference.toLowerCase();
-      var locs = listCoords;
+      
       pref = preference;
       typeOfPlace = type_of_place;
       console.log("type of place and pref: ", typeOfPlace, pref);
@@ -19,10 +21,10 @@ module.exports = {
       var circle = sec.getCircle(locs);
       console.log("circle is: ", circle);
       var first = {lat: locs[0].lat, lng: locs[0].lng};
-      var second = {lat: locs[1].lat, lng: locs[1].lng};
+      var second = {lat: locs[1].lat, lng: locs[1].lng};      
       console.log("top two locations being queried: ", first, second);
       googleMapsClient.distanceMatrix({
-        origins: [first],
+        origins: [first], 
         destinations: [second]
       }, function(err, response) {
         if (err) {
@@ -203,8 +205,8 @@ module.exports = {
             }
           })
         }
-      })
-    });
+      });
+    
   }
 }
 
