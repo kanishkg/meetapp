@@ -57,7 +57,7 @@ module.exports = function (app) {
 		var recommendations = meet.findCandidates(listCoords, preference, optimize);
 		stateInfo[tid].recommendations = recommendations;
 		stateInfo[tid].state = 2;
-		console.log(stateInfo[tid],"recos");
+		console.log("reeeeeeeeeec",stateInfo[tid],"recos");
 		res.json(stateInfo[tid]);
 	});
 
