@@ -199,7 +199,7 @@ module.exports = {
                 items.sort(function(first, second) {
                   return second[1] - first[1];  
                 });
-                console.log("recommended places: ", items.slice(0, 5));
+                console.log("recommended places: ", items.slice(0, 4));
                 return cb(null, items)  //return items;
               }
             }

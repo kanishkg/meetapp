@@ -55,7 +55,7 @@ module.exports = function (app) {
 			    listCoords.push({"lat":parseFloat(arrayItem[0].lat),"lng":parseFloat(arrayItem[0].lon)});
 			});
 		var recommendations = meet.findCandidates(listCoords, preference, optimize);
-		console.log(recommendations);
+		console.log("hahahaha",recommendations);
 		stateInfo[tid].recommendations = recommendations;
 		stateInfo[tid].state = 2;
 		console.log("reeeeeeeeeec",stateInfo[tid],"recos");
