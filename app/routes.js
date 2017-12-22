@@ -10,6 +10,7 @@ module.exports = function (app) {
 		var threadID = req.body.tid;
 		console.log(req.body);
 		if(stateInfo[threadID]){
+			console.log(stateInfo[threadID]);
 			res.json(stateInfo[threadID]);
 		}
 		else{
