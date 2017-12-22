@@ -69,8 +69,6 @@
  				  {
  					  if(i===0){
  						  $('#suggestions').append('<div class="carousel-item card active"><div class="card-header">'+arrayItem[0]+'</div><div class="card-body">Text Goes Here</div></div>');
- 						  $('#suggestions').append(arrayIte)
- 
  					  i=1;}
  
  					  else{
@@ -174,9 +172,18 @@
 
     <li data-target="#demo" data-slide-to="2"></li>
     <li data-target="#demo" data-slide-to="3"></li>
+    <li data-target="#demo" data-slide-to="4"></li>
+	
 		  </ul>
 		<div id="suggestions" class="carousel carousel slide" data-ride="carousel">
 		</div>
+
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
 
 </body>
 </html>
