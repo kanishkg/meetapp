@@ -26,12 +26,10 @@
 	<script src="js/core.js"></script> <!-- load our main application -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://connect.facebook.com/en_US/messenger.Extensions.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 </head>
 <!-- SET THE CONTROLLER -->
 <body ng-controller="mainController">
 <script>
-		var socket = io();
 		var context = {}
 		var state = {}
 		$(document).ready(function(){MessengerExtensions.getContext('131709420816962',
@@ -66,10 +64,8 @@
 				    $('.page2').hide();
 				    $('page3').show();
 				    var i =0;
-				    socket.emit("recos");
-				    socket.emit(state);
 				    var rec = state.recommendations.slice(0,4);
-				    $('#suggestions').append(rec);
+				    $('#suggestions').append(JSON.stringify(rec));
 // 				   state.recommendations.slice(0,4).forEach(function (arrayItem)
 // 				  {
 // 					  if(i===0){
