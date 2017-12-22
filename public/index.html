@@ -68,17 +68,18 @@
 				    var i =0;
 				    socket.emit("recos");
 				    socket.emit(state);
-
-				   state.recommendations.slice(0,4).forEach(function (arrayItem)
-				  {
-					  if(i===0){
-						  $('#suggestions').append('<div class="carousel-item card active"><div class="card-header">'+arrayItem[0]+'</div><div class="card-body">Text Goes Here</div></div>');
-					  i=1;}
-
-					  else{
-						$('#suggestions').append('<div class="carousel-item card"><div class="card-header">'+arrayItem[0]+'</div><div class="card-body">Text Goes Here</div></div>');
-					  }
-				});
+				    var rec = state.recommendations.slice(0,4);
+				    $('#suggestions').append(rec);
+// 				   state.recommendations.slice(0,4).forEach(function (arrayItem)
+// 				  {
+// 					  if(i===0){
+// 						  //$('#suggestions').append('<div class="carousel-item card active"><div class="card-header">'+arrayItem[0]+'</div><div class="card-body">Text Goes Here</div></div>');
+// 						  //$('#suggestions').append(arrayIte)
+// 
+// 					  i=1;}
+// 
+// 					  else{
+// 						//$('#suggestions').append('<div class="carousel-item card"><div class="card-header">'+arrayItem[0]+'</div><div class="card-body">Text Goes Here</div></div>'); // 					  } // 				});
 
 			    }
 			    },
@@ -172,7 +173,7 @@
 	</div>
 	<div class="page3 container">
 		<h1>Here are our picks</h1>
-		  <ul id="indicators" class="carousel-indicators">
+<!--		  <ul id="indicators" class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
 
@@ -180,7 +181,8 @@
     <li data-target="#demo" data-slide-to="3"></li>
 		  </ul>
 		<div id="suggestions" class="carousel carousel slide" data-ride="carousel">
-		</div>
+		</div>-->
+		<div id="suggestions"></div>
 	</div>
 
 </body>
