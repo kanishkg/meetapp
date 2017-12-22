@@ -25,8 +25,7 @@ module.exports = function (app) {
 			res.json(stateInfo[threadID]);
 		}
 	});
-	app.post('/preference',function (req,res){
-		console.log("whoa");
+	app.post('/preference',function (req,res){ console.log("whoa");
 		console.log(req.body.c, req.body.pref);
 		var preference = req.body.pref;
 		var query = req.body.c;
@@ -56,6 +55,7 @@ module.exports = function (app) {
 			    listCoords.push({"lat":parseFloat(arrayItem[0].lat),"lng":parseFloat(arrayItem[0].lon)});
 			});
 		var recommendations = meet.findCandidates(listCoords, preference, optimize);
+		console.log(recommendations);
 		stateInfo[tid].recommendations = recommendations;
 		stateInfo[tid].state = 2;
 		console.log("reeeeeeeeeec",stateInfo[tid],"recos");
