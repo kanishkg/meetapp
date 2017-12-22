@@ -54,13 +54,16 @@ module.exports = function (app) {
 			    console.log(arrayItem[0],"arrayItem");
 			    listCoords.push({"lat":parseFloat(arrayItem[0].lat),"lng":parseFloat(arrayItem[0].lon)});
 			});
-		var recommendations = meet.findCandidates(listCoords, preference, optimize);
+		meet.findCandidates(listCoords, preference, optimize,function(err, recommendations){
 		console.log("hahahaha",recommendations);
 		stateInfo[tid].recommendations = recommendations;
 		stateInfo[tid].state = 2;
 		console.log("reeeeeeeeeec",stateInfo[tid],"recos");
+
+		});
+
 		res.json(stateInfo[tid]);
-	});
+			});
 
 	app.get('/sendLoc',function (req,res){
 		var tid = req.query.tid;
