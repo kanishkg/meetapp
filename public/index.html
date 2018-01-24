@@ -10,8 +10,6 @@
 	<title>MEETAPP</title>
 
 	<!-- SCROLLS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
 	<style>
 		html 					{ overflow-y:scroll; }
@@ -19,7 +17,12 @@
 		#todo-list 				{ margin-bottom:30px; }
 		#todo-form 	 			{ margin-bottom:50px; }
 	</style>
-
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
 	<!-- SPELLS -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
 
@@ -131,36 +134,29 @@
 });
 </script>
 
-	<div class="page1 container">
+	<div class="page1 ui grid container">
 
 		<!-- HEADER AND TODO COUNT -->
 		<h1>Where do you want to meet?</h1>
-		<div id="todo-form" class="row">
-			<form>
-				<div class="form-group">
+			<div class="input">
+				<input type="text" class=" " id="textPref" placeholder="cafe or bar or whatever" >
+			</div>	
 
-					<input type="text" class="form-control input-lg text-center" id="textPref" placeholder="cafe or bar or whatever" ng-model="formData.text">
-				</div>
+			<button type="input" class="ui right labeled icon button" id="preference">
+			  <i class="right arrow icon"></i>	
+			  Proceed</button>
 
-				<!-- createToDo() WILL CREATE NEW TODOS -->
-				<button type="input" class="btn btn-primary btn-lg" id="preference">Proceed</button>
-				<p id="demo">results here</p>
-				<div id="mapholder"></div>
-				</div>
-
-			</form>
-
-	</div>
-	<div class="page2 container">
-		<h1>Update Locations</h1>
+			<p id="demo">results here</p>
+			<div id="mapholder"></div>
+</div> <div class="page2 ui grid container"> <h1>Update Locations</h1>
 		<h3>Share this link in the chat window so your friends can add their locations</h3>
 		<div id="locList" class="container">
 		</div>
-		<button type="input" class="btn btn-primary btn-lg" id="locButton">Add/update my location</button>
+		<button type="input" class="button" id="locButton">Add/update my location</button>
 		<p id="ppref"></p>
-		<button type="input" class="btn btn-primary btn-lg" id="showBut">Show me  what you GOOOT</button>
+		<button type="input" class="button" id="showBut">Show me  what you GOOOT</button>
 	</div>
-	<div class="page3 container">
+	<div class="page3 ui grid container">
 		<h1>Here are our picks</h1>
 	</div>
 <!--
