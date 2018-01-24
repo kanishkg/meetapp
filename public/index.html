@@ -43,7 +43,7 @@
 				$('.page2').show();
 				$('.page3').hide();
 				    Object.keys(state.locations).forEach(function(key){
-					    $('#locList').append("<div class='row'>"+state.locations[key][1]+":"+state.locations[key][0]['addr']+"</div>");
+					    $('#locList').append("<tr><td>"+state.locations[key][1]+"</td><td>"+state.locations[key][0]['addr']+"</td></tr>");
 				    });
 				$('#ppref').html("You want to meet at a "+state.preference);
 			    }
@@ -132,7 +132,7 @@
 		</div>
 			<div class="row">
 			<div class="ui input">
-				<input type="text" id="textPref" placeholder="cafe or bar or whatever" >
+				<input type="text" id="textPref" placeholder="Cafe,Bar and so on" >
 			</div>	
 			</div>
 			<div class="row">
@@ -142,11 +142,16 @@
 			</div>
 			<p id="demo">results here</p>
 			<div id="mapholder"></div>
-</div> <div class="page2 ui grid container"> <h1>Update Locations</h1>
+</div>
+ <div class="page2 ui grid centered"> <h1>Update Locations</h1>
 		<h3>Share this link in the chat window so your friends can add their locations</h3>
-		<div id="locList" class="container">
+		<table class="table selected">
+		<tbody>
+		<div id="locList">
 		</div>
-		<button type="input" class="button" id="locButton">Add/update my location</button>
+		</tbody>
+		</table>
+		<button type="input" class="button" id="locButton">Add/Update location</button>
 		<p id="ppref"></p>
 		<button type="input" class="button" id="showBut">Show me  what you GOOOT</button>
 	</div>
