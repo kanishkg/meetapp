@@ -97,7 +97,16 @@
 			    cache: false,
 			    type: 'POST',
 			    success: function(response) {
-			    			    },
+				state = response;
+			    	$('.page1').hide();
+				$('.page2').show();
+				$('.page3').hide();
+				    Object.keys(state.locations).forEach(function(key){
+					    $('#locList').append("<tr><td>"+state.locations[key][1]+"</td><td>"+state.locations[key][0]['addr']+"</td></tr>");
+				    });
+				$('#ppref').html("You want to meet at a "+state.preference);
+				    },
+
 			    error: function(error) {
 				console.log(error);
 			    }
